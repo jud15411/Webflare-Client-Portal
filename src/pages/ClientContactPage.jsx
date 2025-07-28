@@ -7,7 +7,7 @@ import io from 'socket.io-client';
 import api from '../services/api';
 import './ClientContactPage.css';
 
-const socket = io('http://localhost:5000'); // Your backend URL
+const socket = io(import.meta.env.VITE_API_BASE_URL); // Your backend URL
 
 const ClientContactPage = () => {
   const [messages, setMessages] = useState([]);
