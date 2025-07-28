@@ -1,0 +1,182 @@
+/* src/index.css */
+
+/* --- Modern CSS Reset & Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- CSS Variables --- */
+:root {
+  --primary-color: #6366f1;       /* A modern indigo */
+  --primary-hover: #4f46e5;      /* A darker indigo */
+  --background-color: #f1f5f9;   /* A light cool gray */
+  --text-color: #334155;         /* A dark slate gray */
+  --text-light: #64748b;         /* A lighter slate gray */
+  --card-background: #ffffff;
+  --border-color: #e2e8f0;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --font-family: 'Inter', sans-serif;
+  --sidebar-width: 250px;
+}
+
+/* --- Global Body Styles --- */
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Main Application Layout --- */
+.app-layout {
+  display: flex;
+}
+
+.content-area {
+  flex-grow: 1;
+  /* Add margin to account for the fixed sidebar */
+  margin-left: var(--sidebar-width); 
+  padding: 2.5rem;
+}
+
+/* --- Page Styles --- */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+/* --- Login Page --- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.login-box {
+  background: var(--card-background);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+.login-box h2 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+.form-group input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  outline: none;
+}
+.btn-login {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-login:hover {
+  background-color: var(--primary-hover);
+}
+.error-message {
+  color: var(--danger-color);
+}
+
+
+/* --- Dashboard Project Card Styles --- */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.07);
+}
+
+.project-card h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  color: var(--primary-color);
+}
+
+.project-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.project-status {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.status {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.status-in-progress, .status-active {
+  background-color: #e0f2fe;
+  color: #0284c7;
+}
+
+.status-completed {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.status-on-hold {
+  background-color: #fef9c3;
+  color: #d97706;
+}
+
+.project-card-link {
+  text-decoration: none;
+}
