@@ -1,15 +1,23 @@
 // src/components/MainLayout.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar'; // Import the new Sidebar
+import Sidebar from './Sidebar';
+import Header from './Header'; // Import the new Header
 
 export default function MainLayout() {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    // The main layout container
     <div className="app-layout">
-      <Sidebar />
-      {/* The main content area now has a left margin to not be hidden by the sidebar */}
+      {/* Pass state and handlers to components */}
+      <Header onToggleSidebar={toggleSidebar} />
+      <Sidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
+      
       <main className="content-area">
         <Outlet /> 
       </main>

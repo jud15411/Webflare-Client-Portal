@@ -180,3 +180,21 @@ body {
 .project-card-link {
   text-decoration: none;
 }
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 768px) {
+  .content-area {
+    margin-left: 0;
+    padding: 1.5rem;
+    padding-top: 70px; /* Add padding to account for the fixed mobile header */
+  }
+
+  .page-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

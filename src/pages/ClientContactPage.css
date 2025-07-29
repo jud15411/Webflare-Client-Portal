@@ -125,3 +125,20 @@
 .message-input-form button:hover {
   background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+  .messaging-container {
+    height: 80vh; /* Allow it to take more vertical space */
+    margin: 0;
+    border-radius: 0;
+    border: none;
+  }
+
+  .messages-area {
+    padding: 1rem;
+  }
+
+  .message-input-form {
+    padding: 0.75rem;
+  }
+}

@@ -3,9 +3,10 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import './Sidebar.css'; // We will create this file next
+import './Sidebar.css';
 
-export default function Sidebar() {
+// Accept isOpen and onClose props
+export default function Sidebar({ isOpen, onClose }) { 
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -14,7 +15,6 @@ export default function Sidebar() {
     navigate('/login');
   };
 
-  // Function to get user initials
   const getInitials = (name) => {
     if (!name) return '?';
     const names = name.split(' ');
@@ -24,17 +24,26 @@ export default function Sidebar() {
     return name[0];
   };
 
+  // Close sidebar when a nav link is clicked on mobile
+  const handleNavLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      onClose();
+    }
+  };
+
   return (
-    <aside className="sidebar">
+    // Add the "open" class based on the isOpen prop
+    <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
       <div className="sidebar-header">
         <div className="logo">🚀</div>
         <span className="logo-text">Client Portal</span>
       </div>
       <nav className="sidebar-nav">
-        <NavLink to="/dashboard" className="nav-link">
+        {/* Add onClick to all NavLinks */}
+        <NavLink to="/dashboard" className="nav-link" onClick={handleNavLinkClick}>
           <span>🏠</span> Dashboard
         </NavLink>
-        <NavLink to="/contact" className="nav-link">
+        <NavLink to="/contact" className="nav-link" onClick={handleNavLinkClick}>
           <span>💬</span> Contact
         </NavLink>
       </nav>

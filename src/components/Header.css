@@ -1,0 +1,48 @@
+/* src/components/Header.css */
+.mobile-header {
+  display: none; /* Hidden by default on desktop */
+  background-color: #1e293b; /* Matches sidebar */
+  color: white;
+  padding: 0 1.5rem;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header-content .logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.hamburger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .mobile-header {
+    display: block; /* Show the header on mobile */
+  }
+}

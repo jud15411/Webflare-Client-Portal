@@ -174,3 +174,19 @@
 .status-on-hold { background-color: #fef9c3; color: #d97706; }
 .status-ready-for-review { background-color: #fefce8; color: #ca8a04; }
 .status-done { background-color: #dcfce7; color: #16a34a; }
+
+@media (max-width: 768px) {
+  .project-detail-card {
+    padding: 1.5rem;
+  }
+
+  .project-progress-section,
+  .project-description,
+  .milestones-section {
+    padding-top: 1.5rem;
+  }
+
+  .milestone-item {
+    padding: 1rem;
+  }
+}
